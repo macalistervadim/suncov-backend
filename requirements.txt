@@ -1,0 +1,14 @@
+asgiref==3.8.1
+Django==5.1.6
+django-cleanup==9.0.0
+django-debug-toolbar==5.0.1
+django-jazzmin==3.0.1
+django-nested-admin==4.1.1
+mypy==1.15.0
+mypy-extensions==1.0.0
+python-dotenv==1.0.1
+python-monkey-business==1.1.0
+ruff==0.9.5
+sqlparse==0.5.3
+typing_extensions==4.12.2
+gunicorn==23.0.0
