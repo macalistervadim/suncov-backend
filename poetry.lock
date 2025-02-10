@@ -81,21 +81,6 @@ django = ">=4.2.9"
 sqlparse = ">=0.2"
 
 [[package]]
-name = "django-jazzmin"
-version = "3.0.1"
-description = "Drop-in theme for django admin, that utilises AdminLTE 3 & Bootstrap 4 to make yo' admin look jazzy"
-optional = false
-python-versions = ">=3.8"
-groups = ["main"]
-files = [
-    {file = "django_jazzmin-3.0.1-py3-none-any.whl", hash = "sha256:12a0a4c1d4fd09c2eef22acf6a1f03112b515ba695c59faa8ea80efc81c1f21b"},
-    {file = "django_jazzmin-3.0.1.tar.gz", hash = "sha256:67ae148bade41267a09ca8e4352ddefa6121795ebbac238bb9a6564ff841eb1b"},
-]
-
-[package.dependencies]
-django = ">=4.2"
-
-[[package]]
 name = "django-nested-admin"
 version = "4.1.1"
 description = "Django admin classes that allow for nested inlines"
@@ -594,4 +579,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "d7bed5e3db310903cd215b3652e32d08cf4612478189313ff1d28fa00e7a3502"
+content-hash = "1c669770a548ccc5b9f307a50433237bd1e7411adca5fe38c7a89e75277a8010"

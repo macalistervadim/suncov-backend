@@ -1,11 +1,24 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Test(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(verbose_name=_("title"), max_length=200)
+    slug = models.SlugField(
+        verbose_name=_("slug"),
+        max_length=200,
+        unique=True,
+    )
+
+    class Meta:
+        verbose_name = _("Test")
+        verbose_name_plural = _("Tests")
 
     def __str__(self) -> str:
-        return self.title
+        return f"{self.title!r}"
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(title={self.title!r})"
+        return (
+            f"{self.__class__.__name__}("
+            f"title={self.title!r})"
+        )

@@ -4,6 +4,6 @@ from src.apps.quizz.api.serializers import QuestionSerializer
 from src.apps.quizz.models.question import Question
 
 
-class QuestionViewSet(viewsets.ModelViewSet):
+class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer

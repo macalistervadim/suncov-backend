@@ -15,7 +15,7 @@ if settings.DEBUG:
 
     schema_view = get_schema_view(
         openapi.Info(
-            title="Onile Shop API",
+            title="Suncov API",
             default_version="v1",
             description="API documentation for project",
         ),

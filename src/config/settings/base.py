@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import dotenv
+from django.utils.translation import gettext_lazy as _
 
 dotenv.load_dotenv()
 
@@ -31,7 +32,6 @@ ALLOWED_HOSTS = load_list("DJANGO_ALLOWED_HOSTS", "*")
 
 INSTALLED_APPS = [
     "src.apps.quizz.apps.QuizzConfig",
-    "jazzmin",
     "nested_admin",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -117,6 +117,13 @@ TIME_ZONE = "Europe/Moscow"
 USE_I18N = True
 USE_TZ = True
 DEFAULT_CHARSET = "utf-8"
+LANGUAGES = [
+    ("en", _("English")),
+    ("ru", _("Русский")),
+]
+LOCALE_PATHS = [
+    BASE_DIR / "locale",
+]
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -126,31 +133,3 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-JAZZMIN_SETTINGS = {
-    "site_title": "Suncov Admin",
-    "site_header": "Suncov Admin",
-    "site_brand": "Suncov",
-    "welcome_sign": "Добро пожаловать в Suncov!",
-    "copyright": "Suncov",
-    "show_sidebar": True,
-    "navigation_expanded": True,
-    "icons": {
-        "auth": "fas fa-users-cog",
-        "auth.user": "fas fa-user",
-        "auth.Group": "fas fa-users",
-    },
-    "topmenu_links": [
-        {
-            "name": "🏠 Главная",
-            "url": "admin:index",
-            "permissions": ["auth.view_user"],
-        },
-        {"name": "Курсы", "url": "/admin/quizz/"},
-        {
-            "name": "💬 Поддержка",
-            "url": "https://github.com/macalistervadim/django-educa",
-            "new_window": True,
-        },
-    ],
-}

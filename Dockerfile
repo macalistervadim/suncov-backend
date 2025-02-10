@@ -1,27 +1,36 @@
 FROM python:3.13-slim as builder
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential curl git && \
+    build-essential curl git locales && \
     rm -rf /var/lib/apt/lists/*
+
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+
+RUN pip install --upgrade pip && \
+    pip install poetry
 
 WORKDIR /app
 
-COPY requirements.txt /app/
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-RUN pip install poetry
-RUN poetry --version
+COPY pyproject.toml poetry.lock /app/
+RUN poetry install --no-root
 
 FROM python:3.13-slim
 
+RUN apt-get update && apt-get install -y --no-install-recommends locales && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+
+ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
+ENV PATH="/root/.local/bin:$PATH" 
+
 WORKDIR /app
 
+COPY --from=builder /root/.local /root/.local
 COPY --from=builder /usr/local /usr/local
 COPY . /app/
-
-ENV PATH="/root/.local/bin:$PATH"
-ENV PYTHONPATH=/app/src
 
 EXPOSE 8000
 

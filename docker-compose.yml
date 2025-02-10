@@ -9,7 +9,6 @@ services:
     networks:
       - app_network
     environment:
-      PYTHONPATH: /app/src
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
       DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
       DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE}

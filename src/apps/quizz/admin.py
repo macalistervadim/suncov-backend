@@ -13,7 +13,6 @@ class AnswerInlineFormSet(BaseInlineFormSet):
         super().clean()
         correct_count = 0
         for form in self.forms:
-            # Если форма пуста или помечена на удаление – пропускаем
             if self.can_delete and form.cleaned_data.get("DELETE", False):
                 continue
             if not form.cleaned_data:
@@ -21,8 +20,6 @@ class AnswerInlineFormSet(BaseInlineFormSet):
             if form.cleaned_data.get("is_correct", False):
                 correct_count += 1
 
-        # Получаем значение режима из родительского вопроса
-        # (self.instance – это объект Question, к которому привязаны ответы)
         if self.instance.has_one_correct_answer:
             if correct_count != 1:
                 raise ValidationError(
@@ -37,22 +34,28 @@ class AnswerInlineFormSet(BaseInlineFormSet):
                 )
 
 
-class AnswerInline(nested_admin.NestedTabularInline):
+class AnswerInline(
+    nested_admin.NestedTabularInline,
+):
     model = Answer
     extra = 1
     fields = ("text", "is_correct")
-    formset = AnswerInlineFormSet  # используем наш кастомный formset
+    formset = AnswerInlineFormSet
 
 
-class QuestionInline(nested_admin.NestedStackedInline):
+class QuestionInline(
+    nested_admin.NestedStackedInline,
+):
     model = Question
     extra = 1
     fields = ("text", "has_one_correct_answer")
     inlines = [AnswerInline]
 
 
+@admin.register(Test)
 class TestAdmin(nested_admin.NestedModelAdmin):
     inlines = [QuestionInline]
+    list_display = ("title",)
 
-
-admin.site.register(Test, TestAdmin)
+    def get_prepopulated_fields(self, request, obj=None):
+        return {"slug": ("title",)}

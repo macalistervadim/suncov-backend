@@ -24,6 +24,8 @@ services:
         poetry run ruff check &&
         poetry run mypy src/apps/ &&
         poetry run python manage.py migrate &&
+        poetry run python manage.py loaddata fixtures/data.json &&
+        poetry run python manage.py loaddata compilemessages &&
         poetry run python manage.py test &&
         poetry run python manage.py runserver 0.0.0.0:8000
       "
