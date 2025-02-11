@@ -4,11 +4,6 @@ from django.utils.translation import gettext_lazy as _
 
 class Test(models.Model):
     title = models.CharField(verbose_name=_("title"), max_length=200)
-    slug = models.SlugField(
-        verbose_name=_("slug"),
-        max_length=200,
-        unique=True,
-    )
 
     class Meta:
         verbose_name = _("Test")

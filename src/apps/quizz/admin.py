@@ -57,5 +57,3 @@ class TestAdmin(nested_admin.NestedModelAdmin):
     inlines = [QuestionInline]
     list_display = ("title",)
 
-    def get_prepopulated_fields(self, request, obj=None):
-        return {"slug": ("title",)}
