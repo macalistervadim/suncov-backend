@@ -13,12 +13,10 @@ services:
       - app_network
     command: >
       bash -c "
-        export PYTHONPATH=/app/src &&
         poetry install --no-root &&
         poetry run ruff check &&
         poetry run mypy src &&
         poetry run python manage.py migrate &&
-        poetry run python manage.py loaddata fixtures/data.json &&
         poetry run python manage.py runserver 0.0.0.0:8000
       "
 

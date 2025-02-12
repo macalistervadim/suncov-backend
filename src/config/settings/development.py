@@ -11,13 +11,6 @@ INSTALLED_APPS += [
 ]
 INSTALLED_APPS.append("drf_yasg")
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
-}
-
 MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
 
 INTERNAL_IPS = ["127.0.0.1", "localhost"]
@@ -26,11 +19,7 @@ DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
 
-STATICFILES_DIRS = [BASE_DIR / "static"]
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
-
-TEMPLATES[0]["OPTIONS"]["debug"] = True
+TEMPLATES[0]["OPTIONS"]["debug"] = True  # type: ignore
 
 INSTALLED_APPS += ["corsheaders"]
 MIDDLEWARE.insert(0, "corsheaders.middleware.CorsMiddleware")

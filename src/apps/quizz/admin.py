@@ -9,7 +9,7 @@ from src.apps.quizz.models.test_ import Test
 
 
 class AnswerInlineFormSet(BaseInlineFormSet):
-    def clean(self):
+    def clean(self) -> None:
         super().clean()
         correct_count = 0
         for form in self.forms:
