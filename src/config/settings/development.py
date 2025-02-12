@@ -41,7 +41,7 @@ CORS_ALLOWED_ORIGINS = load_list(
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-LOGGING = {
+"""LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
@@ -69,3 +69,4 @@ LOGGING = {
         },
     },
 }
+"""

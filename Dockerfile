@@ -1,36 +1,30 @@
-FROM python:3.13-slim as builder
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential curl git locales && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
-    locale-gen
-
-RUN pip install --upgrade pip && \
-    pip install poetry
+# Stage 1: Build (Poetry, зависимости)
+FROM python:3.12-slim as builder
 
 WORKDIR /app
 
-COPY pyproject.toml poetry.lock /app/
-RUN poetry install --no-root
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential curl git && \
+    rm -rf /var/lib/apt/lists/*
 
-FROM python:3.13-slim
+RUN pip install --no-cache-dir poetry
+
+COPY pyproject.toml poetry.lock /app/
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-root
+
+# Stage 2: Production
+FROM python:3.12-slim
+
+WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends locales && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
-    locale-gen
-
-ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
-ENV PATH="/root/.local/bin:$PATH" 
-
-WORKDIR /app
-
-COPY --from=builder /root/.local /root/.local
 COPY --from=builder /usr/local /usr/local
 COPY . /app/
+
+RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
