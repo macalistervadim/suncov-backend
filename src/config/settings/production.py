@@ -4,10 +4,7 @@ from src.config.settings.base import *  # noqa: F403
 
 dotenv.load_dotenv()
 
-
 DEBUG = False
-
-ALLOWED_HOSTS = load_list("DJANGO_ALLOWED_HOSTS", "your-domain.com")
 
 SECURE_SSL_REDIRECT = True
 CSRF_COOKIE_SECURE = True
@@ -15,6 +12,17 @@ SESSION_COOKIE_SECURE = True
 X_FRAME_OPTIONS = "DENY"
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+INSTALLED_APPS += ["corsheaders"]
+MIDDLEWARE.insert(0, "corsheaders.middleware.CorsMiddleware")
+CORS_ALLOWED_ORIGINS = load_list(
+    "DJANGO_CORS_ALLOWED_ORIGINS",
+    ["http://localhost:3000"],
+)
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 LOGGING = {
     "version": 1,

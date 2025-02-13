@@ -4,12 +4,16 @@ FROM python:3.12-slim as builder
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential curl git && \
+    build-essential curl git gettext && \
     rm -rf /var/lib/apt/lists/*
+
+RUN msguniq --version
+
 
 RUN pip install --no-cache-dir poetry
 
 COPY pyproject.toml poetry.lock /app/
+
 RUN poetry config virtualenvs.create false \
     && poetry install --no-root
 
@@ -18,13 +22,12 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends locales && \
+RUN apt-get update && apt-get install -y --no-install-recommends locales gettext && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /usr/local /usr/local
 COPY . /app/
 
-RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 

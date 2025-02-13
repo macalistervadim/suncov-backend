@@ -184,3 +184,4 @@ src/media/
 
 # ruff 
 .ruff_cache/
+.github/workflows/deploy.yml
