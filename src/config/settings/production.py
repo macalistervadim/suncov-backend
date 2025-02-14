@@ -27,11 +27,11 @@ INSTALLED_APPS += ["corsheaders"]
 MIDDLEWARE.insert(0, "corsheaders.middleware.CorsMiddleware")
 CORS_ALLOWED_ORIGINS = load_list(
     "DJANGO_CORS_ALLOWED_ORIGINS",
-    ["http://no"],
+    ["https://my-domain.ru"],
 )
 CSRF_TRUSTED_ORIGINS = load_list(
     "DJANGO_CSRF_TRUSTED_ORIGINS",
-    "main",
+    ["https://my-domain.ru"],
 )
 
 STATIC_URL = "/static/"
