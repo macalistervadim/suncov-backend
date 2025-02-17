@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-12 14:35+0300\n"
+"POT-Creation-Date: 2025-02-17 07:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,9 +20,46 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: src/apps/dictation/models/dictation.py:7
+#: src/apps/dictation/models/dictation.py:32
+#: src/apps/partofspeech/models/part_of_speech.py:7
+#: src/apps/quizz/models/test_.py:6
+msgid "title"
+msgstr "название"
+
+#: src/apps/dictation/models/dictation.py:14
+#: src/apps/dictation/models/dictation.py:15
+#: src/apps/partofspeech/models/part_of_speech.py:14
+#: src/apps/partofspeech/models/part_of_speech.py:15
+msgid "Theme"
+msgstr "Тема"
+
+#: src/apps/dictation/models/dictation.py:27
+#: src/apps/partofspeech/models/part_of_speech.py:29
+msgid "theme"
+msgstr "тема"
+
+#: src/apps/dictation/models/dictation.py:38
+#: src/apps/partofspeech/models/part_of_speech.py:32
 #: src/apps/quizz/models/answer.py:6 src/apps/quizz/models/question.py:6
 msgid "text"
 msgstr "текст"
+
+#: src/apps/dictation/models/dictation.py:42
+msgid "Dictation"
+msgstr "Диктант"
+
+#: src/apps/dictation/models/dictation.py:43
+msgid "dictation"
+msgstr "диктант"
+
+#: src/apps/partofspeech/models/part_of_speech.py:36
+msgid "Partofspeech"
+msgstr "Часть речи"
+
+#: src/apps/partofspeech/models/part_of_speech.py:37
+msgid "Partofspeechs"
+msgstr "Части речи"
 
 #: src/apps/quizz/models/answer.py:8
 msgid "is_correct"
@@ -52,10 +89,6 @@ msgstr "есть только один правильный ответ"
 msgid "Questions"
 msgstr "Вопросы"
 
-#: src/apps/quizz/models/test_.py:6
-msgid "title"
-msgstr "название"
-
 #: src/apps/quizz/models/test_.py:9
 msgid "Test"
 msgstr "Тест"
@@ -64,11 +97,11 @@ msgstr "Тест"
 msgid "Tests"
 msgstr "Тесты"
 
-#: src/config/settings/base.py:121
+#: src/config/settings/base.py:123
 msgid "English"
 msgstr "Английский"
 
-#: src/config/settings/base.py:122
+#: src/config/settings/base.py:124
 msgid "Русский"
 msgstr "Русский"
 

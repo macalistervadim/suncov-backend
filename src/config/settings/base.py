@@ -32,6 +32,8 @@ ALLOWED_HOSTS = load_list("DJANGO_ALLOWED_HOSTS", "*")
 
 INSTALLED_APPS = [
     "src.apps.quizz.apps.QuizzConfig",
+    "src.apps.dictation.apps.DictationConfig",
+    "src.apps.partofspeech.apps.PartofspeechConfig",
     "nested_admin",
     "django.contrib.admin",
     "django.contrib.auth",

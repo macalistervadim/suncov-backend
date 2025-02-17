@@ -13,9 +13,9 @@ services:
       - app_network
     command: >
       bash -c "
-        poetry install --no-root &&
         poetry run ruff check &&
         poetry run mypy src &&
+        poetry run python manage.py makemigrations &&
         poetry run python manage.py migrate &&
         poetry run python manage.py runserver 0.0.0.0:8000
       "

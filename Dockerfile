@@ -7,9 +7,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential curl git gettext && \
     rm -rf /var/lib/apt/lists/*
 
-RUN msguniq --version
-
-
 RUN pip install --no-cache-dir poetry
 
 COPY pyproject.toml poetry.lock /app/
@@ -28,6 +25,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends locales gettext
 COPY --from=builder /usr/local /usr/local
 COPY . /app/
 
+RUN poetry install --no-root
+
+ENV PYTHONPATH="/usr/local/lib/python3.12/site-packages"
 
 EXPOSE 8000
 

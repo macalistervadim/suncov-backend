@@ -1,49 +1,216 @@
 [
 {
-  "model": "quizz.answer",
+  "model": "dictation.theme",
   "pk": 1,
   "fields": {
-    "text": "dsfsd",
-    "is_correct": true,
-    "question": 1
+    "title": "Чередующиеся"
   }
 },
 {
-  "model": "quizz.answer",
+  "model": "dictation.dictation",
+  "pk": 1,
+  "fields": {
+    "theme": 1,
+    "title": "гар-гор",
+    "text": "123"
+  }
+},
+{
+  "model": "dictation.dictation",
   "pk": 2,
   "fields": {
-    "text": "dsfsdf",
-    "is_correct": false,
-    "question": 1
+    "theme": 1,
+    "title": "зар-зор",
+    "text": "ываыва"
   }
 },
 {
-  "model": "quizz.question",
+  "model": "partofspeech.theme",
   "pk": 1,
   "fields": {
-    "text": "dsfsdf",
-    "test": 1,
-    "has_one_correct_answer": true
+    "title": "вводное слово"
   }
 },
 {
-  "model": "quizz.test",
+  "model": "partofspeech.theme",
+  "pk": 2,
+  "fields": {
+    "title": "вводное слово2"
+  }
+},
+{
+  "model": "partofspeech.partofspeech",
   "pk": 1,
   "fields": {
-    "title": "sdfsd"
+    "theme": 1,
+    "text": "ываывшошо*ывавы*оываышоаышовщыав"
+  }
+},
+{
+  "model": "partofspeech.partofspeech",
+  "pk": 2,
+  "fields": {
+    "theme": 2,
+    "text": "ываывшошо*ывавы*оываышоаышовщыав"
+  }
+},
+{
+  "model": "partofspeech.partofspeech",
+  "pk": 3,
+  "fields": {
+    "theme": 2,
+    "text": "asdasdasdas"
+  }
+},
+{
+  "model": "partofspeech.partofspeech",
+  "pk": 4,
+  "fields": {
+    "theme": 1,
+    "text": "asdasdasdasd"
   }
 },
 {
   "model": "admin.logentry",
   "pk": 1,
   "fields": {
-    "action_time": "2025-02-12T11:11:24.272Z",
+    "action_time": "2025-02-17T04:20:42.344Z",
     "user": 1,
-    "content_type": 2,
+    "content_type": 6,
     "object_id": "1",
-    "object_repr": "'sdfsd'",
+    "object_repr": "вводное слово",
     "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Question\", \"object\": \"'dsfsdf'\"}}, {\"added\": {\"name\": \"Answer\", \"object\": \"'dsfsd'\"}}, {\"added\": {\"name\": \"Answer\", \"object\": \"'dsfsdf'\"}}]"
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-02-17T04:20:52.168Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "вводное слово - ываывшошо*ывавы*оываышоаышовщыав",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-02-17T04:20:59.311Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "вводное слово2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-02-17T04:21:01.871Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "вводное слово2 - ываывшошо*ывавы*оываышоаышовщыав",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-02-17T04:25:31.473Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "вводное слово2 - asdasdasdas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-02-17T04:25:36.463Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "вводное слово - asdasdasdasd",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-02-17T04:26:46.714Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "sdfsfsdf",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-02-17T04:26:52.810Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "1",
+    "object_repr": "dsfs",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-02-17T04:36:45.563Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "Чередующиеся",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-02-17T04:36:47.451Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "1",
+    "object_repr": "гар-гор",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Text\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-02-17T04:36:56.416Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "2",
+    "object_repr": "зар-зор",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
   }
 },
 {
@@ -158,215 +325,359 @@
   "model": "auth.permission",
   "pk": 13,
   "fields": {
-    "name": "Can add log entry",
+    "name": "Can add Theme",
     "content_type": 4,
-    "codename": "add_logentry"
+    "codename": "add_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 14,
   "fields": {
-    "name": "Can change log entry",
+    "name": "Can change Theme",
     "content_type": 4,
-    "codename": "change_logentry"
+    "codename": "change_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 15,
   "fields": {
-    "name": "Can delete log entry",
+    "name": "Can delete Theme",
     "content_type": 4,
-    "codename": "delete_logentry"
+    "codename": "delete_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 16,
   "fields": {
-    "name": "Can view log entry",
+    "name": "Can view Theme",
     "content_type": 4,
-    "codename": "view_logentry"
+    "codename": "view_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 17,
   "fields": {
-    "name": "Can add permission",
+    "name": "Can add Dictation",
     "content_type": 5,
-    "codename": "add_permission"
+    "codename": "add_dictation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 18,
   "fields": {
-    "name": "Can change permission",
+    "name": "Can change Dictation",
     "content_type": 5,
-    "codename": "change_permission"
+    "codename": "change_dictation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 19,
   "fields": {
-    "name": "Can delete permission",
+    "name": "Can delete Dictation",
     "content_type": 5,
-    "codename": "delete_permission"
+    "codename": "delete_dictation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 20,
   "fields": {
-    "name": "Can view permission",
+    "name": "Can view Dictation",
     "content_type": 5,
-    "codename": "view_permission"
+    "codename": "view_dictation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 21,
   "fields": {
-    "name": "Can add group",
+    "name": "Can add Theme",
     "content_type": 6,
-    "codename": "add_group"
+    "codename": "add_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 22,
   "fields": {
-    "name": "Can change group",
+    "name": "Can change Theme",
     "content_type": 6,
-    "codename": "change_group"
+    "codename": "change_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 23,
   "fields": {
-    "name": "Can delete group",
+    "name": "Can delete Theme",
     "content_type": 6,
-    "codename": "delete_group"
+    "codename": "delete_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 24,
   "fields": {
-    "name": "Can view group",
+    "name": "Can view Theme",
     "content_type": 6,
-    "codename": "view_group"
+    "codename": "view_theme"
   }
 },
 {
   "model": "auth.permission",
   "pk": 25,
   "fields": {
-    "name": "Can add user",
+    "name": "Can add Partofspeech",
     "content_type": 7,
-    "codename": "add_user"
+    "codename": "add_partofspeech"
   }
 },
 {
   "model": "auth.permission",
   "pk": 26,
   "fields": {
-    "name": "Can change user",
+    "name": "Can change Partofspeech",
     "content_type": 7,
-    "codename": "change_user"
+    "codename": "change_partofspeech"
   }
 },
 {
   "model": "auth.permission",
   "pk": 27,
   "fields": {
-    "name": "Can delete user",
+    "name": "Can delete Partofspeech",
     "content_type": 7,
-    "codename": "delete_user"
+    "codename": "delete_partofspeech"
   }
 },
 {
   "model": "auth.permission",
   "pk": 28,
   "fields": {
-    "name": "Can view user",
+    "name": "Can view Partofspeech",
     "content_type": 7,
-    "codename": "view_user"
+    "codename": "view_partofspeech"
   }
 },
 {
   "model": "auth.permission",
   "pk": 29,
   "fields": {
-    "name": "Can add content type",
+    "name": "Can add log entry",
     "content_type": 8,
-    "codename": "add_contenttype"
+    "codename": "add_logentry"
   }
 },
 {
   "model": "auth.permission",
   "pk": 30,
   "fields": {
-    "name": "Can change content type",
+    "name": "Can change log entry",
     "content_type": 8,
-    "codename": "change_contenttype"
+    "codename": "change_logentry"
   }
 },
 {
   "model": "auth.permission",
   "pk": 31,
   "fields": {
-    "name": "Can delete content type",
+    "name": "Can delete log entry",
     "content_type": 8,
-    "codename": "delete_contenttype"
+    "codename": "delete_logentry"
   }
 },
 {
   "model": "auth.permission",
   "pk": 32,
   "fields": {
-    "name": "Can view content type",
+    "name": "Can view log entry",
     "content_type": 8,
-    "codename": "view_contenttype"
+    "codename": "view_logentry"
   }
 },
 {
   "model": "auth.permission",
   "pk": 33,
   "fields": {
-    "name": "Can add session",
+    "name": "Can add permission",
     "content_type": 9,
-    "codename": "add_session"
+    "codename": "add_permission"
   }
 },
 {
   "model": "auth.permission",
   "pk": 34,
   "fields": {
-    "name": "Can change session",
+    "name": "Can change permission",
     "content_type": 9,
-    "codename": "change_session"
+    "codename": "change_permission"
   }
 },
 {
   "model": "auth.permission",
   "pk": 35,
   "fields": {
-    "name": "Can delete session",
+    "name": "Can delete permission",
     "content_type": 9,
-    "codename": "delete_session"
+    "codename": "delete_permission"
   }
 },
 {
   "model": "auth.permission",
   "pk": 36,
   "fields": {
-    "name": "Can view session",
+    "name": "Can view permission",
     "content_type": 9,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 10,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 10,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 10,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 10,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 11,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 11,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 11,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 11,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 12,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 12,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 12,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 12,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 13,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 13,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 13,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 13,
     "codename": "view_session"
   }
 },
@@ -374,8 +685,8 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$870000$9OA13uCoZ33H37oGqLVvHj$Lv7EY6GX+YpQzZV6rRxq6zDMBYF6vrNHyS4weXiLCwk=",
-    "last_login": "2025-02-12T10:47:38.766Z",
+    "password": "pbkdf2_sha256$870000$ywt4LMySIEUgjnfR9COZxp$ohnoDp/NCn17ZdIVwgW8GKyDNzC4ktOc+gBKANjzqZk=",
+    "last_login": "2025-02-17T04:20:31.122Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -383,7 +694,7 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2025-02-12T10:47:33.327Z",
+    "date_joined": "2025-02-17T04:20:25.671Z",
     "groups": [],
     "user_permissions": []
   }
@@ -416,13 +727,45 @@
   "model": "contenttypes.contenttype",
   "pk": 4,
   "fields": {
+    "app_label": "dictation",
+    "model": "theme"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "dictation",
+    "model": "dictation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "partofspeech",
+    "model": "theme"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "partofspeech",
+    "model": "partofspeech"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
     "app_label": "admin",
     "model": "logentry"
   }
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 5,
+  "pk": 9,
   "fields": {
     "app_label": "auth",
     "model": "permission"
@@ -430,7 +773,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 6,
+  "pk": 10,
   "fields": {
     "app_label": "auth",
     "model": "group"
@@ -438,7 +781,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 7,
+  "pk": 11,
   "fields": {
     "app_label": "auth",
     "model": "user"
@@ -446,7 +789,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 8,
+  "pk": 12,
   "fields": {
     "app_label": "contenttypes",
     "model": "contenttype"
@@ -454,7 +797,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 9,
+  "pk": 13,
   "fields": {
     "app_label": "sessions",
     "model": "session"
@@ -462,10 +805,10 @@
 },
 {
   "model": "sessions.session",
-  "pk": "nszmyfbk52t34mbrwvllav6ix9d493we",
+  "pk": "ejzzlg1fr0ali1uz8a7f6hwdb6hrkx96",
   "fields": {
-    "session_data": ".eJxVjMEOwiAQRP-FsyFsCwt49N5vIOxCpWpoUtqT8d9tkx50jvPezFuEuK0lbC0vYUriKkBcfjuK_Mz1AOkR632WPNd1mUgeijxpk8Oc8ut2un8HJbayr23MaBxrxd4kcmMC7S1wR3s82mw8qR782PUW0TGaSEAEoFFp5xSKzxfk8TdK:1tiAHK:Vxhm537vx49ZUgJ4yBrSmKOjK25JyIVaCGKIkSrBt9E",
-    "expire_date": "2025-02-26T10:47:38.769Z"
+    "session_data": ".eJxVjMsOwiAQRf-FtSEw5VFcuvcbyMAMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJE4mz0OL0uyXMD247oDu22yzz3NZlSnJX5EG7vM7Ez8vh_h1U7PVbIyXWxRXjwTrrFAQm4CErPXp2Lo9Ag6XgvTIABTwC-GCYYWAsqRjx_gDa_Tes:1tjscR:D8Hmeu7joYHWlgwDIyDPAsyvLcuKR0EkDYrQd24ml8E",
+    "expire_date": "2025-03-03T04:20:31.127Z"
   }
 }
 ]
