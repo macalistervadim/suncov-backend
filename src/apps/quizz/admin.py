@@ -2,6 +2,7 @@ import nested_admin
 from django.contrib import admin
 from django.core.exceptions import ValidationError
 from django.forms.models import BaseInlineFormSet
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import path, reverse
 from django.utils.html import format_html
@@ -39,14 +40,14 @@ class AnswerInlineFormSet(BaseInlineFormSet):
 
 class AnswerInline(nested_admin.NestedTabularInline):
     model = Answer
-    extra = 1
+    extra = 0
     fields = ("text", "is_correct")
     formset = AnswerInlineFormSet
 
 
 class QuestionInline(nested_admin.NestedStackedInline):
     model = Question
-    extra = 1
+    extra = 0
     fields = ("text", "has_one_correct_answer", "duplicate_button")
     readonly_fields = ("duplicate_button",)
     inlines = [AnswerInline]
@@ -58,7 +59,10 @@ class QuestionInline(nested_admin.NestedStackedInline):
                 '<a class="button" href="{}">Дублировать</a>',
                 reverse("admin:duplicate-question", args=[obj.pk]),
             )
-        return ""
+        return (
+            "Нажмите кнопку *Сохранить и продолжить редактирование* "
+            "чтобы дублировать"
+        )
 
     duplicate_button.short_description = "Дублировать вопрос"  # type: ignore
 
@@ -68,7 +72,7 @@ class TestAdmin(nested_admin.NestedModelAdmin):
     inlines = [QuestionInline]
     list_display = ("title",)
 
-    def get_urls(self):
+    def get_urls(self) -> list:
         """Добавляем новый URL для дублирования вопроса"""
         urls = super().get_urls()
         custom_urls = [
@@ -80,10 +84,14 @@ class TestAdmin(nested_admin.NestedModelAdmin):
         ]
         return custom_urls + urls
 
-    def duplicate_question(self, request, question_id):
+    def duplicate_question(
+        self,
+        request: HttpRequest,
+        question_id: int,
+    ) -> HttpResponse:
         """Создает дубликат вопроса"""
         question = get_object_or_404(Question, pk=question_id)
-        test_id = question.test.pk  # Получаем ID теста
+        test_id = question.test.pk
 
         new_question = Question.objects.create(
             text=f"{question.text} (копия)",
@@ -91,7 +99,6 @@ class TestAdmin(nested_admin.NestedModelAdmin):
             has_one_correct_answer=question.has_one_correct_answer,
         )
 
-        # Дублируем ответы
         for answer in question.answers.all():
             Answer.objects.create(
                 text=answer.text,
@@ -99,7 +106,6 @@ class TestAdmin(nested_admin.NestedModelAdmin):
                 question=new_question,
             )
 
-        # Возвращаем пользователя обратно в тест, где был дублированный вопрос
         return redirect(
             reverse("admin:quizz_test_change", args=[test_id]),
         )
