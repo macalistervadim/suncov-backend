@@ -61,7 +61,9 @@ class DictationView(viewsets.ReadOnlyModelViewSet):
 
             serialized_data = DictationSerializer(dictations, many=True).data
 
-            grouped_data = defaultdict(lambda: {"items": []})
+            grouped_data: defaultdict[str, dict[str, list]] = defaultdict(
+                lambda: {"items": []},
+            )
 
             for item in serialized_data:
                 theme_title = item["theme"]
@@ -69,7 +71,7 @@ class DictationView(viewsets.ReadOnlyModelViewSet):
                     {
                         "id": item["id"],
                         "text": item["text"],
-                    }
+                    },
                 )
 
             result = [
