@@ -8,14 +8,15 @@ class Theme(models.Model):
         max_length=30,
         unique=True,
         null=False,
+        blank=False,
     )
 
     class Meta:
         verbose_name = _("Theme")
-        verbose_name_plural = _("Theme")
+        verbose_name_plural = _("Themes")
 
     def __str__(self) -> str:
-        return f"{self.title}"
+        return self.title
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(title={self.title!r})"
@@ -25,7 +26,7 @@ class Dictation(models.Model):
     theme = models.ForeignKey(
         Theme,
         verbose_name=_("theme"),
-        related_name="theme",
+        related_name="dictations",
         on_delete=models.CASCADE,
     )
     title = models.CharField(
@@ -33,17 +34,16 @@ class Dictation(models.Model):
         max_length=100,
         unique=True,
         null=False,
+        blank=False,
     )
-    text = models.TextField(
-        verbose_name=_("text"),
-    )
+    text = models.TextField(verbose_name=_("text"))
 
     class Meta:
         verbose_name = _("Dictation")
-        verbose_name_plural = _("dictation")
+        verbose_name_plural = _("Dictations")
 
     def __str__(self) -> str:
-        return f"{self.title}"
+        return self.title
 
     def __repr__(self) -> str:
         return (

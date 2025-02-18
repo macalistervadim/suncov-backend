@@ -10,7 +10,7 @@ class Test(models.Model):
         verbose_name_plural = _("Tests")
 
     def __str__(self) -> str:
-        return f"{self.title!r}"
+        return self.title
 
     def __repr__(self) -> str:
         return (

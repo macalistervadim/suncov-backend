@@ -8,7 +8,7 @@ from src.apps.quizz.models.test_ import Test
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
-        fields = "__all__"
+        fields = ("id", "text", "is_correct", "question")
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -16,7 +16,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = "__all__"
+        fields = ("id", "text", "test", "has_one_correct_answer", "answers")
 
 
 class TestSerializer(serializers.ModelSerializer):
@@ -24,4 +24,4 @@ class TestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Test
-        fields = "__all__"
+        fields = ("id", "title", "questions")

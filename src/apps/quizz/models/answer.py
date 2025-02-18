@@ -19,7 +19,7 @@ class Answer(models.Model):
         verbose_name_plural = _("Answers")
 
     def __str__(self) -> str:
-        return f"{self.text!r}"
+        return self.text
 
     def __repr__(self) -> str:
         return (

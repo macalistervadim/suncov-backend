@@ -1,7 +1,5 @@
-from collections import defaultdict
 from typing import Any
 
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.request import Request
@@ -16,32 +14,26 @@ class PartOfSpeechView(viewsets.ReadOnlyModelViewSet):
     serializer_class = PartOfSpeechSerializer
     permission_classes = [AllowAny]
 
-    @csrf_exempt
     def list(self, request: Request, *args: Any, **kwargs: Any) -> Response:
-        dictations = PartOfSpeech.objects.all()
-        serialized_data = PartOfSpeechSerializer(dictations, many=True).data
+        parts_of_speech = PartOfSpeech.objects.all()
+        serialized_data = PartOfSpeechSerializer(
+            parts_of_speech, many=True,
+        ).data
 
-        grouped_data = defaultdict(list)
-
+        grouped_data: dict[Any, Any] = {}
         for item in serialized_data:
             theme = item["theme"]
-            grouped_data[theme].append(
-                {"text": item["text"]},
-            )
+            if theme not in grouped_data:
+                grouped_data[theme] = []
+            grouped_data[theme].append({"text": item["text"]})
 
         result = [
             {"theme": theme, "items": items}
             for theme, items in grouped_data.items()
         ]
-
-
         return Response(result)
 
-    @csrf_exempt
     def retrieve(
-        self,
-        request: Response,
-        *args: Any,
-        **kwargs: Any,
+        self, request: Request, *args: Any, **kwargs: Any,
     ) -> Response:
         return super().retrieve(request, *args, **kwargs)
