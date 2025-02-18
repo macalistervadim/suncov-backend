@@ -15,10 +15,16 @@ from src.apps.quizz.models.test_ import Test
 class AnswerInlineFormSet(BaseInlineFormSet):
     def clean(self) -> None:
         super().clean()
+        non_deleted_forms = [
+            form
+            for form in self.forms
+            if not (self.can_delete and form.cleaned_data.get("DELETE", False))
+        ]
+        if not non_deleted_forms:
+            return
+
         correct_count = 0
-        for form in self.forms:
-            if self.can_delete and form.cleaned_data.get("DELETE", False):
-                continue
+        for form in non_deleted_forms:
             if not form.cleaned_data:
                 continue
             if form.cleaned_data.get("is_correct", False):
@@ -33,8 +39,8 @@ class AnswerInlineFormSet(BaseInlineFormSet):
         else:
             if correct_count < 2:
                 raise ValidationError(
-                    "Если выбран режим нескольких правильных ответов, "
-                    "выберите минимум два варианта, помеченных как правильные",
+                    "Если выбран режим нескольких правильных ответов, выберите"
+                    " минимум два варианта, помеченных как правильные.",
                 )
 
 
