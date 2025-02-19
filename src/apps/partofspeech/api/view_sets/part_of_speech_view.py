@@ -32,8 +32,3 @@ class PartOfSpeechView(viewsets.ReadOnlyModelViewSet):
             for theme, items in grouped_data.items()
         ]
         return Response(result)
-
-    def retrieve(
-        self, request: Request, *args: Any, **kwargs: Any,
-    ) -> Response:
-        return super().retrieve(request, *args, **kwargs)

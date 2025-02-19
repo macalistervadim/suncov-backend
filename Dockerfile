@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir poetry
 COPY pyproject.toml poetry.lock /app/
 
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-root --no-dev
+    && poetry install --no-root
 
 # Stage 2: Production
 FROM python:3.12-slim
@@ -27,7 +27,7 @@ COPY --from=builder /usr/local /usr/local
 
 COPY . /app/
 
-RUN poetry install --no-root --no-dev
+RUN poetry install --no-root
 
 ENV PYTHONPATH="/usr/local/lib/python3.12/site-packages"
 
