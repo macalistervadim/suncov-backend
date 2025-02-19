@@ -1,219 +1,5 @@
 [
 {
-  "model": "dictation.theme",
-  "pk": 1,
-  "fields": {
-    "title": "Чередующиеся"
-  }
-},
-{
-  "model": "dictation.dictation",
-  "pk": 1,
-  "fields": {
-    "theme": 1,
-    "title": "гар-гор",
-    "text": "123"
-  }
-},
-{
-  "model": "dictation.dictation",
-  "pk": 2,
-  "fields": {
-    "theme": 1,
-    "title": "зар-зор",
-    "text": "ываыва"
-  }
-},
-{
-  "model": "partofspeech.theme",
-  "pk": 1,
-  "fields": {
-    "title": "вводное слово"
-  }
-},
-{
-  "model": "partofspeech.theme",
-  "pk": 2,
-  "fields": {
-    "title": "вводное слово2"
-  }
-},
-{
-  "model": "partofspeech.partofspeech",
-  "pk": 1,
-  "fields": {
-    "theme": 1,
-    "text": "ываывшошо*ывавы*оываышоаышовщыав"
-  }
-},
-{
-  "model": "partofspeech.partofspeech",
-  "pk": 2,
-  "fields": {
-    "theme": 2,
-    "text": "ываывшошо*ывавы*оываышоаышовщыав"
-  }
-},
-{
-  "model": "partofspeech.partofspeech",
-  "pk": 3,
-  "fields": {
-    "theme": 2,
-    "text": "asdasdasdas"
-  }
-},
-{
-  "model": "partofspeech.partofspeech",
-  "pk": 4,
-  "fields": {
-    "theme": 1,
-    "text": "asdasdasdasd"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2025-02-17T04:20:42.344Z",
-    "user": 1,
-    "content_type": 6,
-    "object_id": "1",
-    "object_repr": "вводное слово",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2025-02-17T04:20:52.168Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "вводное слово - ываывшошо*ывавы*оываышоаышовщыав",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2025-02-17T04:20:59.311Z",
-    "user": 1,
-    "content_type": 6,
-    "object_id": "2",
-    "object_repr": "вводное слово2",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2025-02-17T04:21:01.871Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "вводное слово2 - ываывшошо*ывавы*оываышоаышовщыав",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2025-02-17T04:25:31.473Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "вводное слово2 - asdasdasdas",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2025-02-17T04:25:36.463Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "4",
-    "object_repr": "вводное слово - asdasdasdasd",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2025-02-17T04:26:46.714Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "1",
-    "object_repr": "sdfsfsdf",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2025-02-17T04:26:52.810Z",
-    "user": 1,
-    "content_type": 5,
-    "object_id": "1",
-    "object_repr": "dsfs",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2025-02-17T04:36:45.563Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "1",
-    "object_repr": "Чередующиеся",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2025-02-17T04:36:47.451Z",
-    "user": 1,
-    "content_type": 5,
-    "object_id": "1",
-    "object_repr": "гар-гор",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Text\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2025-02-17T04:36:56.416Z",
-    "user": 1,
-    "content_type": 5,
-    "object_id": "2",
-    "object_repr": "зар-зор",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -433,7 +219,7 @@
   "model": "auth.permission",
   "pk": 25,
   "fields": {
-    "name": "Can add Partofspeech",
+    "name": "Can add Part of Speech",
     "content_type": 7,
     "codename": "add_partofspeech"
   }
@@ -442,7 +228,7 @@
   "model": "auth.permission",
   "pk": 26,
   "fields": {
-    "name": "Can change Partofspeech",
+    "name": "Can change Part of Speech",
     "content_type": 7,
     "codename": "change_partofspeech"
   }
@@ -451,7 +237,7 @@
   "model": "auth.permission",
   "pk": 27,
   "fields": {
-    "name": "Can delete Partofspeech",
+    "name": "Can delete Part of Speech",
     "content_type": 7,
     "codename": "delete_partofspeech"
   }
@@ -460,7 +246,7 @@
   "model": "auth.permission",
   "pk": 28,
   "fields": {
-    "name": "Can view Partofspeech",
+    "name": "Can view Part of Speech",
     "content_type": 7,
     "codename": "view_partofspeech"
   }
@@ -685,8 +471,8 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$870000$ywt4LMySIEUgjnfR9COZxp$ohnoDp/NCn17ZdIVwgW8GKyDNzC4ktOc+gBKANjzqZk=",
-    "last_login": "2025-02-17T04:20:31.122Z",
+    "password": "pbkdf2_sha256$870000$RjZSlbFgv2vEzFJxMwkwIB$Wc/0DPFWl6hF/HoeEHWwM/EFASuyC1wbtTgbA15HHLs=",
+    "last_login": null,
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -694,7 +480,7 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2025-02-17T04:20:25.671Z",
+    "date_joined": "2025-02-19T08:14:11.937Z",
     "groups": [],
     "user_permissions": []
   }
@@ -801,14 +587,6 @@
   "fields": {
     "app_label": "sessions",
     "model": "session"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "ejzzlg1fr0ali1uz8a7f6hwdb6hrkx96",
-  "fields": {
-    "session_data": ".eJxVjMsOwiAQRf-FtSEw5VFcuvcbyMAMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJE4mz0OL0uyXMD247oDu22yzz3NZlSnJX5EG7vM7Ez8vh_h1U7PVbIyXWxRXjwTrrFAQm4CErPXp2Lo9Ag6XgvTIABTwC-GCYYWAsqRjx_gDa_Tes:1tjscR:D8Hmeu7joYHWlgwDIyDPAsyvLcuKR0EkDYrQd24ml8E",
-    "expire_date": "2025-03-03T04:20:31.127Z"
   }
 }
 ]

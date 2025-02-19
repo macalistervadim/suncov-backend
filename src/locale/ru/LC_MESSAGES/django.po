@@ -1,17 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Описание файла перевода
+# Авторские права (C) ГОД ПРАВООБЛАДАТЕЛЬ ПАКЕТА
+# Этот файл распространяется на тех же условиях лицензии, что и пакет PACKAGE.
+# ПЕРВЫЙ АВТОР macalistervadim@ya.ru, 2025.
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-17 07:40+0300\n"
+"POT-Creation-Date: 2025-02-19 10:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,27 +19,34 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: src/apps/dictation/apps.py:8
+msgid "Диктант"
+msgstr "Диктант"
+
 #: src/apps/dictation/models/dictation.py:7
-#: src/apps/dictation/models/dictation.py:32
+#: src/apps/dictation/models/dictation.py:33
 #: src/apps/partofspeech/models/part_of_speech.py:7
 #: src/apps/quizz/models/test_.py:6
 msgid "title"
 msgstr "название"
 
-#: src/apps/dictation/models/dictation.py:14
 #: src/apps/dictation/models/dictation.py:15
 #: src/apps/partofspeech/models/part_of_speech.py:14
-#: src/apps/partofspeech/models/part_of_speech.py:15
 msgid "Theme"
 msgstr "Тема"
 
-#: src/apps/dictation/models/dictation.py:27
+#: src/apps/dictation/models/dictation.py:16
+#: src/apps/partofspeech/models/part_of_speech.py:15
+msgid "Themes"
+msgstr "Темы"
+
+#: src/apps/dictation/models/dictation.py:28
 #: src/apps/partofspeech/models/part_of_speech.py:29
 msgid "theme"
 msgstr "тема"
 
-#: src/apps/dictation/models/dictation.py:38
-#: src/apps/partofspeech/models/part_of_speech.py:32
+#: src/apps/dictation/models/dictation.py:39
+#: src/apps/partofspeech/models/part_of_speech.py:31
 #: src/apps/quizz/models/answer.py:6 src/apps/quizz/models/question.py:6
 msgid "text"
 msgstr "текст"
@@ -50,16 +56,24 @@ msgid "Dictation"
 msgstr "Диктант"
 
 #: src/apps/dictation/models/dictation.py:43
-msgid "dictation"
-msgstr "диктант"
+msgid "Dictations"
+msgstr "Диктанты"
 
-#: src/apps/partofspeech/models/part_of_speech.py:36
-msgid "Partofspeech"
+#: src/apps/partofspeech/apps.py:8
+msgid "Часть речи"
 msgstr "Часть речи"
 
-#: src/apps/partofspeech/models/part_of_speech.py:37
-msgid "Partofspeechs"
+#: src/apps/partofspeech/models/part_of_speech.py:34
+msgid "Part of Speech"
+msgstr "Часть речи"
+
+#: src/apps/partofspeech/models/part_of_speech.py:35
+msgid "Parts of Speech"
 msgstr "Части речи"
+
+#: src/apps/quizz/apps.py:8
+msgid "Тест"
+msgstr "Тест"
 
 #: src/apps/quizz/models/answer.py:8
 msgid "is_correct"
@@ -97,34 +111,10 @@ msgstr "Тест"
 msgid "Tests"
 msgstr "Тесты"
 
-#: src/config/settings/base.py:123
+#: src/config/settings/base.py:134
 msgid "English"
 msgstr "Английский"
 
-#: src/config/settings/base.py:124
+#: src/config/settings/base.py:135
 msgid "Русский"
 msgstr "Русский"
-
-#~ msgid "name"
-#~ msgstr "имя"
-
-#~ msgid "TestType"
-#~ msgstr "Тип теста"
-
-#~ msgid "TestTypes"
-#~ msgstr "Типы тестов"
-
-#~ msgid "slug"
-#~ msgstr "слаг"
-
-#~ msgid "test_type"
-#~ msgstr "тип теста"
-
-#~ msgid "Добро пожаловать в Suncov!"
-#~ msgstr "Добро пожаловать в Suncov!"
-
-#~ msgid "🏠 Главная"
-#~ msgstr "🏠 Главная"
-
-#~ msgid "💬 Поддержка"
-#~ msgstr "💬 Поддержка"

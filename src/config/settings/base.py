@@ -21,7 +21,7 @@ def load_bool(key: str, default: bool) -> bool:
     )
 
 
-def load_list(key: str, default: str | list) -> list:
+def load_list(key: str, default: list[str] | str) -> list:
     return os.getenv(
         key,
         ",".join(default) if isinstance(default, list) else default,
@@ -44,8 +44,11 @@ INSTALLED_APPS = [
     "django_cleanup.apps.CleanupConfig",
     "rest_framework",
     "drf_spectacular",
+    "corsheaders",
 ]
+
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -89,7 +92,8 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
-            "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
         ),
     },
     {
@@ -110,9 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.AllowAny",
-    ],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
@@ -132,13 +134,10 @@ LANGUAGES = [
     ("en", _("English")),
     ("ru", _("Русский")),
 ]
-LOCALE_PATHS = [
-    BASE_DIR / "locale",
-]
+LOCALE_PATHS = [BASE_DIR / "locale"]
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [BASE_DIR / "static"]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
