@@ -19,12 +19,14 @@ jobs:
       postgres:
         image: postgres:13
         env:
-          POSTGRES_USER: testuser
-          POSTGRES_PASSWORD: testpassword
-          POSTGRES_DB: testdb
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
         ports:
           - 5432:5432
-        options: --health-cmd="pg_isready -U testuser" --health-timeout=5s --health-retries=5
+        options: --health-cmd="pg_isready -U ${{ secrets.POSTGRES_USER }}" --health-timeout=5s --health-retries=5
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -39,6 +41,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           poetry install --no-root
+
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          until pg_isready -h localhost -p 5432 -U ${{ secrets.POSTGRES_USER }}; do
+            echo "Waiting for PostgreSQL..."
+            sleep 2
+          done
 
       - name: Run Tests
         run: |
