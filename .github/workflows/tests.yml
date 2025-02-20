@@ -1,4 +1,4 @@
-name: Linters
+name: Run Tests
 
 on:
   push:
@@ -9,12 +9,22 @@ on:
       - 'fix/*'
   pull_request:
     branches:
-      - prod
+      - main
       - dev
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpassword
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432
+        options: --health-cmd="pg_isready -U testuser" --health-timeout=5s --health-retries=5
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -30,8 +40,6 @@ jobs:
           pip install poetry
           poetry install --no-root
 
-      - name: Run Ruff
-        run: poetry run ruff check
-
-      - name: Run MyPy
-        run: poetry run mypy src
+      - name: Run Tests
+        run: |
+          poetry run python manage.py test src/
