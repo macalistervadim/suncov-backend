@@ -5,8 +5,8 @@ on:
     branches:
       - prod
       - dev
-      - 'feature/*'
-      - 'fix/*'
+      - feature/*
+      - fix/*
   pull_request:
     branches:
       - main
