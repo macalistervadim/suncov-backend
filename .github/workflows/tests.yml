@@ -26,7 +26,9 @@ jobs:
           POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
         ports:
           - 5432:5432
-        options: --health-cmd="pg_isready -U ${{ secrets.POSTGRES_USER }}" --health-timeout=5s --health-retries=5
+        options: >-
+          --health-cmd="pg_isready -U ${POSTGRES_USER}" 
+          --health-timeout=5s --health-retries=5
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
