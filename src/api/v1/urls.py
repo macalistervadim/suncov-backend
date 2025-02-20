@@ -9,7 +9,7 @@ from src.apps.quizz.api.view_sets.quizz_view_sets import TestViewSet
 
 router = DefaultRouter()
 router.register(r"tests", TestViewSet, basename="test")
-router.register(r"dictations", DictationView, basename="dication")
+router.register(r"dictations", DictationView, basename="dictation")
 router.register(
     r"part_of_speechs",
     PartOfSpeechView,

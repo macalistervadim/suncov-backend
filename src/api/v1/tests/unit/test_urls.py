@@ -10,7 +10,7 @@ class URLAccessibilityTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_dictation_view_url(self) -> None:
-        url = reverse("dication-list")
+        url = reverse("dictation-list")
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 

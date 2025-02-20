@@ -46,5 +46,5 @@ class PartOfSpeechModelTestCase(TestCase):
         self.assertEqual(
             repr(part_of_speech),
             f"PartOfSpeech(theme={self.theme!r}, "
-            "text={part_of_speech.text!r})",
+            f"text={part_of_speech.text!r})",
         )

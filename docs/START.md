@@ -120,7 +120,7 @@ docker-compose up --build -d
 Для применения миграций в контейнерах выполните следующую команду:
 
 ```bash
-docker-compose exec web poetry run python manage.py migrate
+docker-compose exec backend poetry run python manage.py migrate
 ```
 
 Эта команда выполнит миграции базы данных внутри контейнера, подключив к PostgreSQL, если это настроено в вашем .env.
@@ -129,21 +129,21 @@ docker-compose exec web poetry run python manage.py migrate
 Скомпилируйте переводы с помощью команды:
 
 ```bash
-docker-compose exec web poetry run python manage.py compilemessages
+docker-compose exec backend poetry run python manage.py compilemessages
 ```
 
 ### 7. Загрузка фикстур (начальные данные)
 Для загрузки фикстур выполните команду:
 
 ```bash
-docker-compose exec web poetry run python manage.py loaddata src/fixtures/data.json
+docker-compose exec backend poetry run python manage.py loaddata src/fixtures/data.json
 ```
 
 ### 8. Запуск проекта
 После выполнения всех настроек и миграций запустите сервер Django:
 
 ```bash
-docker-compose exec web poetry run python manage.py runserver
+docker-compose exec backend poetry run python manage.py runserver
 ```
 
 Теперь проект будет доступен по адресу http://127.0.0.1:8000/.

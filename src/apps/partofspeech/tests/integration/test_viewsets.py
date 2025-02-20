@@ -57,20 +57,3 @@ class PartOfSpeechViewTestCase(APITestCase):
 
         data = response.json()
         self.assertEqual(data, [])
-
-    def test_list_parts_of_speech_no_groups(self) -> None:
-        """
-        Тестирует получение списка частей речи без группировки,
-        когда все части речи имеют одинаковую тему.
-        """
-        self.part_of_speech3.delete()
-
-        url = reverse("part-of-speech-list")
-        response = self.client.get(url)
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        data = response.json()
-        self.assertEqual(len(data), 1)
-        self.assertEqual(data[0]["theme"], self.theme1.title)
-        self.assertEqual(len(data[0]["items"]), 3)

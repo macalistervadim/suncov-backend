@@ -26,6 +26,6 @@ class Question(models.Model):
         return (
             f"{self.__class__.__name__}("
             f"test={self.test!r}, "
-            f"text={self.text!r}"
+            f"text={self.text!r}, "
             f"has_one_correct_answer={self.has_one_correct_answer!r})"
         )

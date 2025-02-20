@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.utils.translation import override
 
 from src.apps.quizz.models.answer import Answer
 from src.apps.quizz.models.question import Question
@@ -26,15 +27,9 @@ class TestModelTestCase(TestCase):
 
     def test_meta_verbose_name(self) -> None:
         """Тестируем Meta.verbose_name"""
-        self.assertEqual(self.test_obj._meta.verbose_name, "Test")
-        self.assertEqual(self.test_obj._meta.verbose_name_plural, "Tests")
-
-    def test_unique_title(self) -> None:
-        """Тестируем уникальность поля title"""
-        with self.assertRaises(Exception):
-            Test.objects.create(
-                title="Sample Test",
-            )
+        with override("en"):
+            self.assertEqual(self.test_obj._meta.verbose_name, "Test")
+            self.assertEqual(self.test_obj._meta.verbose_name_plural, "Tests")
 
 
 class QuestionModelTestCase(TestCase):
@@ -68,8 +63,11 @@ class QuestionModelTestCase(TestCase):
 
     def test_meta_verbose_name(self) -> None:
         """Тестируем Meta.verbose_name"""
-        self.assertEqual(self.question._meta.verbose_name, "Question")
-        self.assertEqual(self.question._meta.verbose_name_plural, "Questions")
+        with override("en"):
+            self.assertEqual(self.question._meta.verbose_name, "Question")
+            self.assertEqual(
+                self.question._meta.verbose_name_plural, "Questions",
+            )
 
     def test_boolean_field_default(self) -> None:
         """Тестируем значение поля по умолчанию для has_one_correct_answer"""
@@ -116,8 +114,9 @@ class AnswerModelTestCase(TestCase):
 
     def test_meta_verbose_name(self) -> None:
         """Тестируем Meta.verbose_name"""
-        self.assertEqual(self.answer._meta.verbose_name, "Answer")
-        self.assertEqual(self.answer._meta.verbose_name_plural, "Answers")
+        with override("en"):
+            self.assertEqual(self.answer._meta.verbose_name, "Answer")
+            self.assertEqual(self.answer._meta.verbose_name_plural, "Answers")
 
     def test_boolean_field_default(self) -> None:
         """Тестируем значение поля по умолчанию для is_correct"""

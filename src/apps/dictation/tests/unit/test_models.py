@@ -41,7 +41,7 @@ class DictationModelTest(TestCase):
         """Тестирование метода __repr__"""
         self.assertEqual(
             repr(self.dictation),
-            "Dictation(theme=<Theme: Grammar>, "
+            "Dictation(theme=Theme(title='Grammar'), "
             "title='Test Dictation', text='This is a test text.')",
         )
 
@@ -62,7 +62,9 @@ class DictationModelTest(TestCase):
         """Проверка, что текст диктанта не может быть пустым"""
         with self.assertRaises(ValueError):
             Dictation.objects.create(
-                theme=self.theme, title="Empty Text Dictation", text="",
+                theme=self.theme,
+                title="Empty Text Dictation",
+                text="",
             )
 
     def test_dictation_relation_with_theme(self) -> None:

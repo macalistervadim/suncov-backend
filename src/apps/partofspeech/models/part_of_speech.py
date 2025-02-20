@@ -41,5 +41,5 @@ class PartOfSpeech(models.Model):
         return (
             f"{self.__class__.__name__}("
             f"theme={self.theme!r}, "
-            "text={self.text!r})"
+            f"text={self.text!r})"
         )

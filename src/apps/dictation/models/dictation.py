@@ -1,3 +1,5 @@
+from typing import Any
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -36,7 +38,7 @@ class Dictation(models.Model):
         null=False,
         blank=False,
     )
-    text = models.TextField(verbose_name=_("text"))
+    text = models.TextField(verbose_name=_("text"), null=False, blank=False)
 
     class Meta:
         verbose_name = _("Dictation")
@@ -52,3 +54,8 @@ class Dictation(models.Model):
             f"title={self.title!r}, "
             f"text={self.text!r})"
         )
+
+    def save(self, *args: Any, **kwargs: Any) -> None:
+        if not self.text:
+            raise ValueError("Text cannot be empty")
+        super().save(*args, **kwargs)
